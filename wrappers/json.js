@@ -8,7 +8,7 @@ export default class JsonWrapper extends Component {
     route: PropTypes.object,
     router: PropTypes.object,
   };
-  render() {
+  render(): Component {
     const { page } = this.props.route;
     return (
       <div>

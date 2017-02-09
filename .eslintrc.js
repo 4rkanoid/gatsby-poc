@@ -14,12 +14,12 @@ module.exports = {
   globals: { document: true, foo: true, window: true },
   extends: [
     'eslint:recommended',
-    'plugin:flowtype/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:jsx-a11y/recommended',
     'plugin:react/recommended',
     'plugin:ava/recommended',
+    'plugin:flowtype/recommended',
   ],
   parserOptions: { sourceType: 'module', ecmaFeatures: { jsx: true } },
   settings: {
@@ -53,6 +53,20 @@ module.exports = {
     flowtype: { onlyFilesWithFlowAnnotation: false },
   },
   rules: {
+    'flowtype/require-return-type': [
+      2,
+      'always',
+      {
+        excludeArrowFunctions: true,
+      },
+    ],
+    'flowtype/require-parameter-type': [
+      2,
+      {
+        excludeArrowFunctions: true,
+      },
+    ],
+    'flowtype/require-valid-file-annotation': [2, 'always'],
     'prettier/prettier': ['error', { trailingComma: true, singleQuote: true }],
   },
 };

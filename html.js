@@ -9,7 +9,8 @@ export default class HtmlRoot extends Component {
   static propTypes = {
     body: PropTypes.string,
   };
-  render() {
+
+  render(): Component {
     const head = Helmet.rewind();
 
     let css;
