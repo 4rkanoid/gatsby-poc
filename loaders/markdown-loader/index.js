@@ -4,7 +4,7 @@ var markdownIt = require('markdown-it');
 var hljs = require('highlight.js');
 var objectAssign = require('object-assign');
 
-var highlight = (str: string, lang: string) => {
+var highlight = function(str: string, lang: string): string {
   if (lang !== null && hljs.getLanguage(lang)) {
     try {
       return hljs.highlight(lang, str).value;
@@ -34,7 +34,7 @@ var md = markdownIt({
   .use(require('markdown-it-abbr'))
   .use(require('markdown-it-attrs'));
 
-module.exports = (content: string) => {
+module.exports = function(content: string): string {
   this.cacheable();
   const meta = frontMatter(content);
   const body = md.render(meta.body);

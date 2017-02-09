@@ -1,6 +1,8 @@
 // @flow
 import path from 'path';
+import DashboardPlugin from 'webpack-dashboard/plugin';
 const stylelint = require('styleLint')(require('./styleLint.config'));
+
 exports.modifyWebpackConfig = (config: object) => {
   config.removePlugin('no-errors');
 
@@ -9,7 +11,7 @@ exports.modifyWebpackConfig = (config: object) => {
     loader: 'eslint-loader',
     include: __dirname,
   });
-
+  config.plugin('dev-dash', DashboardPlugin);
   config.merge(current => {
     current.postcss = wp => [
       require('postcss-import')({
