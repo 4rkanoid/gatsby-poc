@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { config } from 'config';
 
 export default class Html extends Component {
-  propTypes = {
+  static propTypes = {
     route: PropTypes.object,
     router: PropTypes.object,
   };
@@ -12,7 +12,7 @@ export default class Html extends Component {
     const page = this.props.route.page.data;
     return (
       <div>
-        <Helmet title={`${config.siteTitle} | ${page.title}`} />
+        <Helmet title={`${config.siteTitle}`} />
         <div dangerouslySetInnerHTML={{ __html: page.body }} />
       </div>
     );

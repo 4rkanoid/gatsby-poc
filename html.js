@@ -6,7 +6,7 @@ import { prefixLink } from 'gatsby-helpers';
 const BUILD_TIME = new Date().getTime();
 
 export default class HtmlRoot extends Component {
-  propTypes = {
+  static propTypes = {
     body: PropTypes.string,
   };
   render() {
@@ -46,4 +46,4 @@ export default class HtmlRoot extends Component {
       </html>
     );
   }
-};
+}

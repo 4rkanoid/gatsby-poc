@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class RootTemplate extends Component {
-  propTypes = {
+  static propTypes = {
     children: PropTypes.any,
   };
   render() {
@@ -11,4 +11,4 @@ export default class RootTemplate extends Component {
       </div>
     );
   }
-};
+}

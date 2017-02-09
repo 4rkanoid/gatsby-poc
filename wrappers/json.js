@@ -3,8 +3,8 @@ import React, { PropTypes, Component } from 'react';
 import Helmet from 'react-helmet';
 import { config } from 'config';
 
-export default class Json extends Component {
-  propTypes = {
+export default class JsonWrapper extends Component {
+  static propTypes = {
     route: PropTypes.object,
     router: PropTypes.object,
   };

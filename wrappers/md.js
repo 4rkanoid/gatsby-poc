@@ -6,7 +6,7 @@ import { config } from 'config';
 import 'css/markdown-styles.css';
 
 export default class Markdown extends Component {
-  propTypes = {
+  static propTypes = {
     route: PropTypes.object,
     router: PropTypes.object,
   };

@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { config } from 'config';
 
 export default class Yaml extends Component {
-  propTypes = {
+  static propTypes = {
     route: PropTypes.object,
     router: PropTypes.object,
   };
