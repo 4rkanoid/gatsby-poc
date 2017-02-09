@@ -1,22 +1,13 @@
 // @flow
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
 import { config } from 'config';
 
 import 'css/markdown-styles.css';
 
-export default class Markdown extends Component {
-  static propTypes = {
-    route: PropTypes.object,
-    router: PropTypes.object,
-  };
-  render(): Component {
-    const page = this.props.route.page.data;
-    return (
-      <div>
-        <Helmet title={`${config.siteTitle} | ${page.title}`} />
-        <div dangerouslySetInnerHTML={{ __html: page.body }} />
-      </div>
-    );
-  }
-}
+export default ({ route: { page: { data } } }) => (
+  <div>
+    <Helmet title={`${config.siteTitle} | ${data.title}`} />
+    <div dangerouslySetInnerHTML={{ __html: data.body }} />
+  </div>
+);

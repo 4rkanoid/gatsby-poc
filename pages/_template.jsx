@@ -1,18 +1,12 @@
 // @flow
-import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 
-export default class RootTemplate extends Component {
-  static propTypes = {
-    route: PropTypes.object,
-    children: PropTypes.any,
-  };
-  render(): Component {
-    return (
-      <div className="template">
-        <Link to="/blog/">aaa</Link>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+import Header from 'components/header';
+import { FullScreenLayout } from 'components/layout';
+
+export default ({ children }) => (
+  <FullScreenLayout>
+    <Header />
+    {children}
+  </FullScreenLayout>
+);

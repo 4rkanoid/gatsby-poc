@@ -1,9 +1,10 @@
+// @flow
 var frontMatter = require('front-matter');
 var markdownIt = require('markdown-it');
 var hljs = require('highlight.js');
 var objectAssign = require('object-assign');
 
-var highlight = function(str, lang) {
+var highlight = (str: string, lang: string) => {
   if (lang !== null && hljs.getLanguage(lang)) {
     try {
       return hljs.highlight(lang, str).value;
@@ -33,7 +34,7 @@ var md = markdownIt({
   .use(require('markdown-it-abbr'))
   .use(require('markdown-it-attrs'));
 
-module.exports = function(content) {
+module.exports = (content: string) => {
   this.cacheable();
   const meta = frontMatter(content);
   const body = md.render(meta.body);

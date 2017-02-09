@@ -1,6 +1,7 @@
+// @flow
 import path from 'path';
 const stylelint = require('styleLint')(require('./styleLint.config'));
-exports.modifyWebpackConfig = function(config) {
+exports.modifyWebpackConfig = (config: object) => {
   config.removePlugin('no-errors');
 
   config.preLoader('js', {

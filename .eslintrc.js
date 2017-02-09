@@ -1,3 +1,4 @@
+// @flow
 module.exports = {
   env: { es6: true, node: true },
   parser: 'babel-eslint',
@@ -66,7 +67,10 @@ module.exports = {
         excludeArrowFunctions: true,
       },
     ],
+    'no-console': [0],
     'flowtype/require-valid-file-annotation': [2, 'always'],
+    'react/display-name': [0],
+    'react/prop-types': [2, { skipUndeclared: true }],
     'prettier/prettier': ['error', { trailingComma: true, singleQuote: true }],
   },
 };
