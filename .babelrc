@@ -1,0 +1,18 @@
+{
+    "plugins": [
+      "add-module-exports",
+      "transform-flow-strip-types",
+      "transform-object-rest-spread",
+      ["transform-class-properties", { "spec": true }]
+    ],
+    "presets": [
+      [ "env", {
+        "targets": {
+          "chrome": 52,
+          "browsers": ["last 2 versions", "safari 7"]
+        },
+        "useBuiltIns": true
+      }],
+      "react"
+  ]
+}
