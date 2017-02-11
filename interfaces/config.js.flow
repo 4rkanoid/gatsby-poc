@@ -1,0 +1,4 @@
+//@flow
+declare module 'config' {
+  declare var exports: { config: any };
+}

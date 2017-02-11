@@ -1,10 +1,36 @@
 // @flow
+const assign = require('object-assign');
+const isProduction = process.env.NODE_ENV === 'production';
+const defaultRules = {
+  'flowtype/require-return-type': [
+    2,
+    'always',
+    {
+      excludeArrowFunctions: true,
+    },
+  ],
+  'flowtype/require-parameter-type': [
+    2,
+    {
+      excludeArrowFunctions: true,
+    },
+  ],
+  'flowtype/require-valid-file-annotation': [2, 'always'],
+  'react/display-name': [0],
+  'react/prop-types': [2, { skipUndeclared: true }],
+  'prettier/prettier': ['error', { trailingComma: true, singleQuote: true }],
+};
+
+const productionOnlyRules = isProduction && {};
+const developmentOnlyRules = !isProduction && { 'no-console': [0] };
+
 module.exports = {
   env: { es6: true, node: true },
   parser: 'babel-eslint',
   plugins: [
     'react',
     'import',
+    'unicorn',
     'ava',
     'prettier',
     'babel',
@@ -21,8 +47,13 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:ava/recommended',
     'plugin:flowtype/recommended',
+    'plugin:unicorn/recommended',
   ],
-  parserOptions: { sourceType: 'module', ecmaFeatures: { jsx: true } },
+  parserOptions: {
+    ecmaVersion: 2017,
+    sourceType: 'module',
+    ecmaFeatures: { jsx: true },
+  },
   settings: {
     'import/core-modules': ['gatsby-helpers'],
     'import/resolver': {
@@ -53,24 +84,5 @@ module.exports = {
     },
     flowtype: { onlyFilesWithFlowAnnotation: false },
   },
-  rules: {
-    'flowtype/require-return-type': [
-      2,
-      'always',
-      {
-        excludeArrowFunctions: true,
-      },
-    ],
-    'flowtype/require-parameter-type': [
-      2,
-      {
-        excludeArrowFunctions: true,
-      },
-    ],
-    'no-console': [0],
-    'flowtype/require-valid-file-annotation': [2, 'always'],
-    'react/display-name': [0],
-    'react/prop-types': [2, { skipUndeclared: true }],
-    'prettier/prettier': ['error', { trailingComma: true, singleQuote: true }],
-  },
+  rules: assign(defaultRules, productionOnlyRules, developmentOnlyRules),
 };

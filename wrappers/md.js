@@ -5,7 +5,11 @@ import { config } from 'config';
 
 import 'css/markdown-styles.css';
 
-export default ({ route: { page: { data } } }) => (
+type Props = {
+  route: any,
+};
+
+export default ({ route: { page: { data } } }: Props) => (
   <div>
     <Helmet title={`${config.siteTitle} | ${data.title}`} />
     <div dangerouslySetInnerHTML={{ __html: data.body }} />

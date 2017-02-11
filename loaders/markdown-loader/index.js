@@ -1,4 +1,5 @@
 // @flow
+/* eslint no-console: [0] */
 var frontMatter = require('front-matter');
 var markdownIt = require('markdown-it');
 var hljs = require('highlight.js');
@@ -8,16 +9,14 @@ var highlight = function(str: string, lang: string): string {
   if (lang !== null && hljs.getLanguage(lang)) {
     try {
       return hljs.highlight(lang, str).value;
-    } catch (_error) {
-      // eslint-disable-next-line
-      console.error(_error);
+    } catch (err) {
+      console.error(err);
     }
   }
   try {
     return hljs.highlightAuto(str).value;
-  } catch (_error) {
-    // eslint-disable-next-line
-    console.error(_error);
+  } catch (err) {
+    console.error(err);
   }
   return '';
 };

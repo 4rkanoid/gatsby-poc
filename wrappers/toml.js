@@ -9,7 +9,7 @@ export default class Toml extends Component {
     route: PropTypes.object,
     router: PropTypes.object,
   };
-  render(): Component {
+  render(): ?React$Element<any> {
     const { data } = this.props.route.page;
     return (
       <div>

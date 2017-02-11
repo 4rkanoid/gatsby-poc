@@ -1,0 +1,4 @@
+//@flow
+declare module 'image-stub' {
+  declare var exports: any;
+}

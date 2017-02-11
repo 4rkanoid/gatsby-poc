@@ -1,20 +1,25 @@
 [version]
-0.38.0
+0.39.0
 
 [ignore]
-.*/node_modules/.*
 .*/__tests__/.*
+.*/node_modules/.*
 
 [include]
 node_modules
 
 [libs]
+interfaces
+flow-typed/npm
+node_modules/iflow-react-router/index.js.flow
 
 [options]
+module.name_mapper='^.*\.css$' -> 'css-module-flow'
 esproposal.class_instance_fields=enable
 esproposal.class_static_fields=enable
-
-strip_root=true
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=node_modules/gatsby/node_modules
+module.system.node.resolve_dirname=.
 
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment= \\(.\\|\n\\)*\\$FlowIssue

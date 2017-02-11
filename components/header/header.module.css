@@ -1,4 +1,5 @@
 .header {
-  height: 200px;
-  background: red;
+  height: calc(5vh + 50px);
+  display: flex;
+  flex-direction: row-reverse;
 }

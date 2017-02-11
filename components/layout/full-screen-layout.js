@@ -1,13 +1,12 @@
 // @flow
 import React from 'react';
-import styles from './header.module.css';
-
+import './layout.css';
+import styles from './layout.module.css';
 type Props = {
   children?: Element<*>,
 };
-
 export default ({ children }: Props) => (
-  <div className={styles.header}>
+  <div className={styles.fullScreen}>
     {children}
   </div>
 );

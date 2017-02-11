@@ -1,2 +1,6 @@
-siteTitle="Publit.com"
+siteTitle = "Publit.com"
 linkPrefix = "/"
+
+[menu]
+about = '/about/'
+home = '/'

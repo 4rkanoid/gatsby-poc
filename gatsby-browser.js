@@ -1,4 +1,4 @@
 // @flow
 import 'babel-polyfill';
 export const onRouteUpdate = () => {};
-export const modifyRoutes = routes => routes;
+export const modifyRoutes = (routes: any) => routes;

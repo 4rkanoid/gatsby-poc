@@ -8,7 +8,7 @@ export default class Html extends Component {
     route: PropTypes.object,
     router: PropTypes.object,
   };
-  render(): Component {
+  render(): ?React$Element<any> {
     const page = this.props.route.page.data;
     return (
       <div>

@@ -1,38 +1,49 @@
 // @flow
-import React from 'react';
+import React, { Component, Element } from 'react';
 import Helmet from 'react-helmet';
 import { prefixLink } from 'gatsby-helpers';
 
 const BUILD_TIME = new Date().getTime();
 
-export default ({ body }) => {
-  const head = Helmet.rewind();
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {head.title.toComponent()}
-        {head.meta.toComponent()}
-        {css()}
-      </head>
-      <body>
-        <div id="react-mount" dangerouslySetInnerHTML={{ __html: body }} />
-        <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
-      </body>
-    </html>
-  );
+// $FlowFixMe
+const rawCss = require('!raw!./public/styles.css');
+
+type Props = {
+  body: string,
 };
 
-const css = () => {
-  if (process.env.NODE_ENV === 'production') {
+export default class Html extends Component<void, Props, void> {
+  render(): Element<any> {
+    const head = Helmet.rewind();
+    const { body } = this.props;
+    let css;
+    if (process.env.NODE_ENV === 'production') {
+      css = (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: rawCss,
+          }}
+        />
+      );
+    }
     return (
-      <style
-        dangerouslySetInnerHTML={{
-          __html: require('!raw!./public/styles.css'),
-        }}
-      />
+      <html lang="en">
+        <head>
+          <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          {head.title.toComponent()}
+          {head.meta.toComponent()}
+          {css}
+        </head>
+        <body>
+          <div id="react-mount" dangerouslySetInnerHTML={{ __html: body }} />
+          <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
+        </body>
+      </html>
     );
   }
-};
+}
