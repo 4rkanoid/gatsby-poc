@@ -7,7 +7,7 @@ import { config } from 'config';
 export default class Toml extends Component {
   static propTypes = {
     route: PropTypes.object,
-    router: PropTypes.object,
+    router: PropTypes.object
   };
   render(): ?React$Element<any> {
     const { data } = this.props.route.page;

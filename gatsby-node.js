@@ -10,18 +10,18 @@ export const modifyWebpackConfig = (config: any, stage: string) => {
     config.preLoader('js', {
       test: /\.jsx?$/,
       loader: 'eslint-loader',
-      include: __dirname,
+      include: __dirname
     });
     config.plugin('dev-dash', DashboardPlugin);
     config.merge(current => {
       current.postcss = () => [
         require('postcss-import')({
-          plugins: [stylelint],
+          plugins: [stylelint]
         }),
         stylelint,
         require('postcss-cssnext')({ browsers: 'last 2 versions' }),
         require('postcss-browser-reporter'),
-        require('postcss-reporter')({ clearMessages: true }),
+        require('postcss-reporter')({ clearMessages: true })
       ];
       return current;
     });
@@ -30,8 +30,8 @@ export const modifyWebpackConfig = (config: any, stage: string) => {
       eslint: {
         useEslintrc: false,
         formatter: require('eslint-friendly-formatter'),
-        configFile: path.resolve(__dirname, '.eslintrc.js'),
-      },
+        configFile: path.resolve(__dirname, '.eslintrc.js')
+      }
     });
   }
   return config;

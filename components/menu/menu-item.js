@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 export type MenuItemPropTypes = {
   title: string,
-  link: string,
+  link: string
 };
 
 export default ({ title, link }: MenuItemPropTypes) => (

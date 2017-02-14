@@ -1,11 +1,15 @@
 .warning {
-  color: #9f6000;
   background-color: #feefb3;
+  color: #9f6000;
   padding: 18px;
 }
 
+body {
+  background: red;
+}
+
 .warning::before {
-  content: '\26A0';
+  content: "\26A0";
   margin-right: 9px;
 }
 

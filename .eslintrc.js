@@ -1,6 +1,7 @@
 // @flow
 const assign = require('object-assign');
 const isProduction = process.env.NODE_ENV === 'production';
+
 const defaultRules = {
   'flowtype/require-return-type': [
     2,
@@ -18,7 +19,7 @@ const defaultRules = {
   'flowtype/require-valid-file-annotation': [2, 'always'],
   'react/display-name': [0],
   'react/prop-types': [2, { skipUndeclared: true }],
-  'prettier/prettier': ['error', { trailingComma: true, singleQuote: true }],
+  'prettier/prettier': ['error', { trailingComma: false, singleQuote: true }],
 };
 
 const productionOnlyRules = isProduction && {};

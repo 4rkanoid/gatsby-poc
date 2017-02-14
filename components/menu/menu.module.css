@@ -1,17 +1,17 @@
 .menu {
-  width: calc(100% / 3);
-  height: 100%;
-  display: flex;
-  flex-direction: row;
   align-items: center;
   border: 1px solid #000;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
   justify-content: space-around;
+  width: calc(100% / 3);
 }
 
 .menuItem {
+  align-items: center;
+  display: flex;
   flex: 1;
   height: 100%;
-  display: flex;
   justify-content: center;
-  align-items: center;
 }

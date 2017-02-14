@@ -9,7 +9,7 @@ import { config } from 'config';
 
 type Props = {
   children?: Element<any>,
-  route: any,
+  route: any
 };
 
 const PageHandler = ({ children }) => {

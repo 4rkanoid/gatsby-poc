@@ -6,7 +6,7 @@ import { config } from 'config';
 export default class Html extends Component {
   static propTypes = {
     route: PropTypes.object,
-    router: PropTypes.object,
+    router: PropTypes.object
   };
   render(): ?React$Element<any> {
     const page = this.props.route.page.data;

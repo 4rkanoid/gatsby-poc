@@ -6,7 +6,7 @@ import MenuItem from './menu-item';
 import type { MenuItemPropTypes } from './menu-item';
 
 type MenuPropTypes = {
-  items: MenuItemPropTypes,
+  items: MenuItemPropTypes
 };
 
 export default ({ items }: MenuPropTypes) => (

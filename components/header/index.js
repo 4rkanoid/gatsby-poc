@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './header.module.css';
 
 type Props = {
-  children?: Element<*>,
+  children?: Element<*>
 };
 
 export default ({ children }: Props) => (

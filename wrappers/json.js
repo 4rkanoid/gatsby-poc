@@ -6,7 +6,7 @@ import { config } from 'config';
 export default class JsonWrapper extends Component {
   static propTypes = {
     route: PropTypes.object,
-    router: PropTypes.object,
+    router: PropTypes.object
   };
   render(): ?React$Element<any> {
     const { page } = this.props.route;
@@ -15,7 +15,7 @@ export default class JsonWrapper extends Component {
         <Helmet title={`${config.siteTitle} | ${page.title}`} />
         <div
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(page.data, null, 4),
+            __html: JSON.stringify(page.data, null, 4)
           }}
         />
       </div>

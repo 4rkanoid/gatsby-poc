@@ -6,7 +6,7 @@ import { config } from 'config';
 import 'css/markdown-styles.css';
 
 type Props = {
-  route: any,
+  route: any
 };
 
 export default ({ route: { page: { data } } }: Props) => (

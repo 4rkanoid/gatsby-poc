@@ -9,7 +9,7 @@ const BUILD_TIME = new Date().getTime();
 const rawCss = require('!raw!./public/styles.css');
 
 type Props = {
-  body: string,
+  body: string
 };
 
 export default class Html extends Component<void, Props, void> {
@@ -21,7 +21,7 @@ export default class Html extends Component<void, Props, void> {
       css = (
         <style
           dangerouslySetInnerHTML={{
-            __html: rawCss,
+            __html: rawCss
           }}
         />
       );
