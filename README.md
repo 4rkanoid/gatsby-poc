@@ -1,2 +1,2 @@
-# Publit.com Gatsby edition
+# Gatsby edition
 The default Gatsby starter
